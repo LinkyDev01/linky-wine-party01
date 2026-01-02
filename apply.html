@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>신청하기 - Linky Lounge Wine Party</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/futura-pt" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css" />
+    <script src="./apply.js" defer></script>
+</head>
+<body>
+    <!-- Application Form -->
+    <section class="application" id="apply">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">APPLY NOW</div>
+                <h2 class="section-title georgia">신청하기</h2>
+                <p class="section-description">
+                    함께 와인을 즐기며 <br class="mobile-break">이야기를 나눌 분들을 기다립니다.<br>
+                    편안한 마음으로 신청해주세요.
+                </p>
+            </div>
+
+            <!-- Progress Steps -->
+            <div class="form-progress">
+                <div class="progress-step active" data-step="1">
+                    <div class="progress-number">1</div>
+                    <div class="progress-label">필수 정보</div>
+                </div>
+                <div class="progress-step" data-step="2">
+                    <div class="progress-number">2</div>
+                    <div class="progress-label">추가 정보</div>
+                </div>
+                <div class="progress-step" data-step="3">
+                    <div class="progress-number">3</div>
+                    <div class="progress-label">사진 & 동의</div>
+                </div>
+            </div>
+
+            <form class="application-form" id="applicationForm">
+                <!-- Step 1: 필수 정보 -->
+                <div class="form-step active" id="step1">
+                    <div class="form-group">
+                        <label class="form-label">이름 *</label>
+                        <input type="text" name="name" class="form-input" required placeholder="홍길동">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">성별 *</label>
+                        <select name="gender" class="form-input" required>
+                            <option value="">선택해주세요</option>
+                            <option value="남성">남성</option>
+                            <option value="여성">여성</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">나이 (만) *</label>
+                        <input type="number" name="age" class="form-input" required placeholder="예: 28" min="19" max="99">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">연락처 *</label>
+                        <input type="tel" name="phone" class="form-input" required placeholder="010-1234-5678">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">자기소개 (200자 이하) *</label>
+                        <textarea name="introduction" class="form-input textarea-resize" required placeholder="취미, 신청 계기 등 진정성 있게 작성해주세요" maxlength="200" rows="4"></textarea>
+                        <div class="char-counter">
+                            <span id="charCount">0</span> / 200자
+                        </div>
+                    </div>
+                    <button type="button" class="submit-button" id="nextStep1">다음 단계</button>
+                </div>
+
+                <!-- Step 2: 추가 정보 -->
+                <div class="form-step" id="step2">
+                    <div class="form-group">
+                        <label class="form-label">직업 (선택)</label>
+                        <input type="text" name="job" class="form-input" placeholder="예: 마케터, 개발자 등">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Instagram ID (선택)</label>
+                        <input type="text" name="instagram" class="form-input" placeholder="@your_instagram_id">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">알게 된 경로 (선택)</label>
+                        <select name="source" class="form-input">
+                            <option value="">선택해주세요</option>
+                            <option value="Instagram">Instagram</option>
+                            <option value="지인 추천">지인 추천</option>
+                            <option value="검색">검색</option>
+                            <option value="기타">기타</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">추천인 (선택)</label>
+                        <input type="text" name="referrer" class="form-input" placeholder="추천해주신 분의 성함">
+                    </div>
+                    <div class="form-buttons">
+                        <button type="button" class="btn-previous" id="prevStep2">이전</button>
+                        <button type="button" class="btn-next" id="nextStep2">다음 단계</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: 사진 & 동의 -->
+                <div class="form-step" id="step3">
+                    <div class="form-group">
+                        <label class="form-label">사진 *</label>
+                        <div class="file-upload-container">
+                            <input type="file" id="photoInput" name="photo" class="file-input-hidden" accept="image/*">
+                            <button type="button" id="photoUploadBtn" class="file-upload-btn" onclick="document.getElementById('photoInput').click()">사진 선택</button>
+                            <span id="fileNameDisplay" class="file-name">선택된 파일 없음</span>
+                        </div>
+                        <div class="form-note">
+                            얼굴이 잘 보이는 본인 사진 한 장을 첨부해주세요.<br>
+                            남이 찍어준 자연스러운 사진도 괜찮아요.
+                        </div>
+                        <img id="photoPreview" class="photo-preview">
+                    </div>
+                    <div class="form-group form-privacy-section">
+                        <label class="form-checkbox-label">
+                            <input type="checkbox" name="privacy_agree" required>
+                            <span>개인정보 수집 및 마케팅 활용에 동의합니다 *</span>
+                        </label>
+                        <label class="form-checkbox-label">
+                            <input type="checkbox" name="photo_agree" required>
+                            <span> 소중한 추억과 행복의 순간을 남기기 위해 촬영을 <br class="mobile-break">진행하고 있으며, 촬영물은 링키라운지 인스타그램 또는 홈페이지 광고 등에 활용될 수 있음에 동의합니다. *</span>
+                        </label>
+                        <div class="form-privacy-notice">
+                            신청하신 분들 중 선별된 분들에 한하여 작성하신 <br class="mobile-break">연락처로 안내 메시지를 보내드립니다.<br>
+                            <strong> 참가자로 선정된 분들은 결제 후 최종 참가 확정되며 <br class="mobile-break">조기 마감될 수 있습니다.</strong>
+                            <br>*결제 마감기한: 2026.01.08 23:59
+                        </div>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="button" class="btn-previous" id="prevStep3">이전</button>
+                        <button type="submit" class="btn-next">신청 완료하기</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p class="loading-text">신청 중입니다...</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo georgia">LINKY LOUNGE</div>
+            </div>
+            <div class="footer-links">
+                <a href="https://www.instagram.com/linky_lounge/" target="_blank" class="footer-link">Instagram</a>
+                <a href="https://naver.me/F4LgLoQx" target="_blank" class="footer-link">오시는 길</a>
+                <a href="https://www.instagram.com/linky_lounge/" target="_blank" class="footer-link">문의하기</a>
+            </div>
+            <p class="footer-copyright">
+                © 2025 Linky Lounge. All rights reserved.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
