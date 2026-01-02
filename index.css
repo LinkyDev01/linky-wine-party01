@@ -1110,8 +1110,8 @@ select.form-input {
     min-width: 120px;
     padding: 15px 10px;
     border: 1px solid var(--border-color);
-    background: rgba(229, 220, 200, 0.02);
-    color: var(--text-primary);
+    background: var(--text-primary);
+    color: var(--bg-color);
     text-align: center;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -1122,14 +1122,13 @@ select.form-input {
 }
 
 .date-button:hover {
-    border-color: var(--text-primary);
-    background: rgba(229, 220, 200, 0.05);
+    border-color: var(--bg-color);
 }
 
 .date-button.selected {
     border-color: var(--border-color);
-    background: var(--text-secondary);
-    color: var(--bg-color);
+    background: var(--accent-color);
+    color: var(--text-primary);
 }
 
 /* Mobile Styles */
