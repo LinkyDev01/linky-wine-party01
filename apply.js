@@ -1,6 +1,19 @@
-// Multi-step form handling
-let currentStep = 1;
-const totalSteps = 3;
+// Date selection buttons
+const dateButtons = document.querySelectorAll('.date-button');
+const selectedDateInput = document.getElementById('selectedDate');
+
+dateButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        // Remove selected class from all buttons
+        dateButtons.forEach(btn => btn.classList.remove('selected'));
+        
+        // Add selected class to clicked button
+        button.classList.add('selected');
+        
+        // Set value to hidden input
+        selectedDateInput.value = button.dataset.date;
+    });
+});
 
 function showStep(stepNumber) {
     // Hide all steps
@@ -65,6 +78,14 @@ function validateStep(stepNumber) {
             if (isNaN(age) || age < 20 || age >= 50) {
                 alert('20세 이상 50세 미만인 사람들만 신청이 가능합니다.');
                 input.focus();
+                return false;
+            }
+        }
+
+        // 날짜 선택 체크
+        else if (input.name === "date") {
+            if (!input.value.trim()) {
+                alert('참여 희망 날짜를 선택해주세요.');
                 return false;
             }
         }
@@ -159,6 +180,7 @@ document.getElementById('applicationForm').addEventListener('submit', async func
 
         const payload = {
             name: this.name.value,
+            date: this.date.value,
             gender: this.gender.value,
             age: this.age.value,
             phone: this.phone.value,
@@ -175,7 +197,7 @@ document.getElementById('applicationForm').addEventListener('submit', async func
 
         try {
             await fetch(
-              'https://script.google.com/macros/s/AKfycbwGlpEvF14Uleyg2-aJ4FP0aqSLap5ywEq31ucvg9rYnuZdyk69OqQo99uKByvtQz4/exec',
+              'https://script.google.com/macros/s/AKfycbwsEhXdUSW51SE97M_CyfaYfzHoAo2z-KEPSlGXSqhNXkXI3_yFAMDlTXiXhrdh6w/exec',
               {
                 method: 'POST',
                 mode: 'no-cors',

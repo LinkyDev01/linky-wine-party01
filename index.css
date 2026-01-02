@@ -343,12 +343,17 @@ section:last-of-type {
     margin: 0 auto;
 }
 
+
 .timeline-item {
     display: grid;
     grid-template-columns: 140px 1fr;
     gap: 60px;
     padding: 40px 0;
     border-bottom: 1px solid var(--border-color);
+}
+
+.timeline-item:first-child {
+    padding-top: 0px;
 }
 
 .timeline-item:last-child {
@@ -429,6 +434,48 @@ section:last-of-type {
     margin-bottom: 12px;
 }
 
+/* Dates Section */
+.dates-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.date-card {
+    border: 1px solid var(--border-color);
+    padding: 40px 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+    background: rgba(229, 220, 200, 0.02);
+}
+
+.date-card:hover {
+    border-color: var(--text-primary);
+    box-shadow: 0 4px 12px rgba(44, 36, 22, 0.1);
+    transform: translateY(-4px);
+}
+
+.date {
+    font-size: 24px;
+    font-weight: 300;
+    margin-bottom: 15px;
+    color: var(--text-primary);
+}
+
+.time {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+.seats {
+    font-size: 14px;
+    font-weight: 400;
+}
+
 /* Gallery Section */
 .gallery-grid {
     display: grid;
@@ -468,7 +515,6 @@ section:last-of-type {
 
 .location-map-buttons {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     margin-top: 30px;
 }
@@ -916,6 +962,10 @@ select.form-input {
         grid-template-columns: 1fr;
     }
 
+    .dates-grid {
+        grid-template-columns: 1fr;
+    }
+
     .timeline-item {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -1045,6 +1095,52 @@ select.form-input {
     font-size: 18px;
     font-weight: 300;
     letter-spacing: 1px;
+}
+
+/* Date Selection Buttons */
+.date-selection {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.date-button {
+    flex: 1;
+    min-width: 120px;
+    padding: 15px 10px;
+    border: 1px solid var(--border-color);
+    background: rgba(229, 220, 200, 0.02);
+    color: var(--text-primary);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 300;
+    border-radius: 4px;
+    line-height: 1.4;
+}
+
+.date-button:hover {
+    border-color: var(--text-primary);
+    background: rgba(229, 220, 200, 0.05);
+}
+
+.date-button.selected {
+    border-color: var(--border-color);
+    background: var(--text-secondary);
+    color: var(--bg-color);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .date-selection {
+        flex-direction: column;
+    }
+
+    .date-button {
+        min-width: auto;
+    }
 }
 
 @keyframes spin {

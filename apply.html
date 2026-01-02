@@ -55,6 +55,15 @@
                         <input type="text" name="name" class="form-input" required placeholder="홍길동">
                     </div>
                     <div class="form-group">
+                        <label class="form-label">참여 희망 날짜 *</label>
+                        <div class="date-selection">
+                            <button type="button" class="date-button" data-date="1.10">1.10 (토)<br>18:00 - 21:00</button>
+                            <button type="button" class="date-button" data-date="1/17">1/17 (토)<br>18:00 - 21:00</button>
+                            <button type="button" class="date-button" data-date="1/23">1/23 (금)<br>19:30 - 22:30</button>
+                        </div>
+                        <input type="hidden" name="date" id="selectedDate" required>
+                    </div>
+                    <div class="form-group">
                         <label class="form-label">성별 *</label>
                         <select name="gender" class="form-input" required>
                             <option value="">선택해주세요</option>
