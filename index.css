@@ -1136,6 +1136,28 @@ select.form-input {
     color: var(--text-primary);
 }
 
+.date-button.closed {
+    background: #6b6560;
+    color: #a09a94;
+    border-color: #6b6560;
+    cursor: not-allowed;
+    position: relative;
+}
+
+.date-button.closed::after {
+    content: '마감';
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    margin-top: 4px;
+    color: #d4a5a5;
+}
+
+.date-button.closed:hover {
+    border-color: #6b6560;
+    background: #6b6560;
+}
+
 /* Mobile Styles */
 @media (max-width: 768px) {
     .date-selection {

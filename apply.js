@@ -4,12 +4,17 @@ const selectedDateInput = document.getElementById('selectedDate');
 
 dateButtons.forEach(button => {
     button.addEventListener('click', () => {
+        // 마감된 버튼은 선택 불가
+        if (button.classList.contains('closed') || button.disabled) {
+            return;
+        }
+
         // Remove selected class from all buttons
         dateButtons.forEach(btn => btn.classList.remove('selected'));
-        
+
         // Add selected class to clicked button
         button.classList.add('selected');
-        
+
         // Set value to hidden input
         selectedDateInput.value = button.dataset.date;
     });
