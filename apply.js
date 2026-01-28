@@ -202,7 +202,7 @@ document.getElementById('applicationForm').addEventListener('submit', async func
 
         try {
             await fetch(
-              'https://script.google.com/macros/s/AKfycbyjfYf-zmSAoupSRyzUmIiY8BMlvUFT8jrA0hB9JACzW_-k2Ixwc9JXZmED0MTytPE/exec',
+              'https://script.google.com/macros/s/AKfycbz1O3-EMDhxSkiVSB3UXV8ndqcpU3cIM1Vti8OSX8KBn-41Z7irYTuELdHdHJk7ze0/exec',
               {
                 method: 'POST',
                 mode: 'no-cors',
