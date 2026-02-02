@@ -922,6 +922,32 @@ select.form-input {
     color: var(--text-primary);
 }
 
+.footer-business-info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px 0;
+    margin-top: 8px;
+}
+
+.footer-links + .footer-business-info {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-business-info span {
+    font-size: 11px;
+    color: var(--text-secondary);
+    font-weight: 300;
+}
+
+.footer-business-info span:not(:last-child)::after {
+    content: "|";
+    margin: 0 12px;
+    color: var(--border-color);
+}
+
 .footer-copyright {
     font-size: 12px;
     color: var(--text-secondary);
@@ -983,6 +1009,16 @@ select.form-input {
     .footer-links {
         flex-direction: column;
         gap: 20px;
+    }
+
+    .footer-business-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+    }
+
+    .footer-business-info span:not(:last-child)::after {
+        display: none;
     }
 
     section {
